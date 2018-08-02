@@ -1,0 +1,29 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title is-size-1">ADD GAME</h1>
+    <div class="card" style="width:400px; margin: 0 auto;">
+      <div class="card-content">
+
+        <form>
+          <div class="control">
+            <label for="title">Title</label>
+            <input class="input is-large" type="text" id="title" name="title" [(ngModel)]="game.title">
+          </div>
+          <br>
+          <div class="control">
+            <label for="publisher">Publisher</label>
+            <input class="input is-large" type="text" id="publisher" name="publisher" [(ngModel)]="game.publisher">
+          </div>
+          <br>
+          <div class="control">
+            <label for="imageUrl">Image Url</label>
+            <input class="input is-large" type="text" id="imageUrl" name="imageUrl" [(ngModel)]="game.imageUrl">
+          </div>
+          <br>
+          <button class="button is-large is-fullwidth is-link" (click)="post()">Add Game</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>

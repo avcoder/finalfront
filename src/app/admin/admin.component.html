@@ -1,0 +1,74 @@
+<section class="section">
+  <div class="container">
+
+    <div class="columns">
+      <div class="column is-four-fifths">
+
+
+
+        <div class="level-right">
+          <a class="button" (click)="fillData()">
+            Fill Data
+          </a>
+
+          <a [routerLink]="['/add']" class="button">
+            Add Game
+          </a>
+        </div>
+        <table class="table is-size-5">
+          <thead>
+            <tr>
+              <th>
+                Title
+              </th>
+              <th>Publisher</th>
+              <th>
+                Year
+              </th>
+              <th>
+                ImageUrl
+              </th>
+              <th>
+                Edit
+              </th>
+              <th>
+                Delete
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let game of webService.games">
+              <th>{{ game.title }}</th>
+              <td>{{ game.publisher }}</td>
+              <td>{{ game.year }}</td>
+              <td>{{ game.imageUrl }}</td>
+              <td>
+                <a [routerLink]="['/edit', game._id]" class="button">
+                  <i class="far fa-edit"></i>
+                </a>
+              </td>
+              <td>
+
+                <a (click)="delete(game._id)" class="button " onclick="return confirm( 'Are you sure you want to delete this?'); ">
+                  <i class="fas fa-trash-alt "></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div class="column ">
+
+        <div class="notification is-danger " *ngIf="message ">
+          <button class="delete " onClick="this.parentElement.remove() " (click)="dismiss() "></button>
+          {{ message }}
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</section>

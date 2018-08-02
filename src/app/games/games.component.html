@@ -1,0 +1,35 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title is-size-1">ALL GAMES</h1>
+
+
+    <main style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+
+
+      <div class="card" style="width: 300px; margin: 3rem;" *ngFor="let game of webService.games">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="{{ game.imageUrl }}" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{ game.title }}</p>
+              <p class="subtitle is-6">{{ game.publisher }}</p>
+            </div>
+            <div class="media-right">
+              <a class="button is-link" href="/play?game={{ game.imageUrl.substring(game.imageUrl.lastIndexOf('/') + 1) }}">Play</a>
+            </div>
+          </div>
+          <p class="content">
+            {{ game.year }}
+          </p>
+        </div>
+      </div>
+
+
+
+    </main>
+  </div>
+</section>
